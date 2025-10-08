@@ -1,0 +1,52 @@
+react-dashboard/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── components/
+│   │   ├── dashboard/
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── Dashboard.css
+│   │   │   └── DashboardHeader.jsx
+│   │   ├── widgets/
+│   │   │   ├── Widget.jsx
+│   │   │   ├── Widget.css
+│   │   │   ├── common/
+│   │   │   │   ├── WidgetHeader.jsx
+│   │   │   │   └── WidgetActions.jsx
+│   │   │   └── types/
+│   │   │       ├── TableWidget.jsx
+│   │   │       ├── ChartWidget.jsx
+│   │   │       ├── KPIWidget.jsx
+│   │   │       └── index.js
+│   │   ├── settings/
+│   │   │   ├── SettingsPanel.jsx
+│   │   │   ├── SettingsPanel.css
+│   │   │   ├── WidgetLibrary.jsx
+│   │   │   └── AddTableForm.jsx
+│   │   └── ui/
+│   │       ├── Modal.jsx
+│   │       ├── Modal.css
+│   │       ├── Button.jsx
+│   │       ├── Card.jsx
+│   │       └── Loader.jsx
+│   ├── contexts/
+│   │   └── DashboardContext.jsx
+│   ├── hooks/
+│   │   ├── useWidgets.js
+│   │   └── useLocalStorage.js
+│   ├── utils/
+│   │   ├── dashboardHelpers.js
+│   │   ├── storage.js
+│   │   └── constants.js
+│   ├── data/
+│   │   └── mockData.js
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── variables.css
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md

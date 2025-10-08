@@ -1,0 +1,240 @@
+.widget {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.widget:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.widget-content {
+  flex: 1;
+  padding: 16px;
+  overflow: auto;
+  background: white;
+}
+
+.widget.settings-open {
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.widget.settings-open .widget-header {
+  opacity: 0.7;
+}
+
+/* Disable interactions when settings are open */
+.dashboard.settings-open .react-grid-item {
+  cursor: default !important;
+}
+
+.dashboard.settings-open .react-resizable-handle {
+  display: none !important;
+}
+
+/* Loading and error states */
+.loading, .error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  color: #666;
+  font-size: 14px;
+}
+
+.error {
+  color: #dc3545;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 16px;
+  text-align: center;
+}
+
+/* No-drag class for interactive elements */
+.no-drag {
+  cursor: auto !important;
+}
+
+/* Ensure all interactive elements are not draggable */
+input, button, select, textarea, 
+.table-controls, .table-actions, 
+.pagination-btn, .action-btn,
+.widget-actions-container,
+.search-input, .page-number {
+  cursor: auto !important;
+}
+
+/* Animation for widget actions */
+@keyframes widgetPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.react-grid-item.dragging {
+  animation: widgetPulse 0.3s ease;
+}
+
+/* Performance optimizations */
+.widget * {
+  box-sizing: border-box;
+}
+
+/* Focus styles for accessibility */
+.widget :focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Print styles */
+@media print {
+  .widget {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .widget {
+    border: 2px solid;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .widget {
+    transition: none;
+  }
+  
+  .react-grid-item.dragging {
+    animation: none;
+  }
+}
+
+/* Dark theme support */
+[data-theme="dark"] .widget {
+  background: #1a1a1a;
+  border-color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .widget-content {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .widget:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .error {
+  background: #5c2a2a;
+  border-color: #8b3a3a;
+  color: #ff6b6b;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .widget-content {
+    padding: 12px;
+  }
+  
+  .widget {
+    border-radius: 6px;
+  }
+}
+
+/* Widget container for grid layout */
+.widget-container {
+  height: 100%;
+  outline: none;
+}
+
+.widget-container:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Empty state for widgets */
+.widget-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: #666;
+  text-align: center;
+  padding: 20px;
+}
+
+.widget-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.widget-empty-state h4 {
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.widget-empty-state p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+[data-theme="dark"] .widget-empty-state {
+  color: #999;
+}
+
+[data-theme="dark"] .widget-empty-state h4 {
+  color: #e0e0e0;
+}
+
+/* Widget loading skeleton */
+.widget-skeleton {
+  padding: 16px;
+}
+
+.skeleton-line {
+  height: 16px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+.skeleton-line.medium {
+  width: 80%;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+[data-theme="dark"] .skeleton-line {
+  background: linear-gradient(90deg, #2d2d2d 25%, #3d3d3d 50%, #2d2d2d 75%);
+}
